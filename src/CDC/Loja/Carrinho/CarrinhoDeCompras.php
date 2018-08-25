@@ -18,13 +18,14 @@ class CarrinhoDeCompras {
         return $this->produtos;
     }
     public function maiorValor() {
-        if (count($this->getItens()) === 0) {
+        if (count($this->getProdutos()) === 0) {
             return 0;
         }
-        $maiorValor = $this->getProdutos()[0]->getValor();
+        $maiorValor = $this->getProdutos()[0]->getValorUnitario();
+        var_dump($maiorValor);
         foreach ($this->getProdutos() as $produto) {
-            if ($maiorValor < $produto->getValor()) {
-                $maiorValor = $produto->getValor();
+            if ($maiorValor < $produto->getValorUnitario()) {
+                $maiorValor = $produto->getValorUnitario();
             }
         }
         return $maiorValor;
